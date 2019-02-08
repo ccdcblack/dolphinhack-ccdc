@@ -13,7 +13,7 @@ silentKill () {
   kill -9 $1 2>/dev/null
 }
 safeproc=( $(ps -ef|awk '{print $2 }') )
-echo "Current state captured, Thanks to Samuel Hayden from DTCC for creating this program"
+echo "Current state captured, killing new processes..."
 while true; do
   for pid in `ps -ef | awk '{print $2}'` ; do
     if containsElement $pid "${safeproc[@]}"
